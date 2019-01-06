@@ -5,7 +5,7 @@
 		  <header class="card-header">
 		    <p class="card-header-title">
 		      Order Number: {{order.orderID}}
-		      <span class="tag mar-10" ng-class="{'is-primary': order.status === 'completed', 'is-danger': order.status === 'cancelled'}">{{order.status}}</span>
+		      <span class="tag mar-10 is-rounded" ng-class="{'is-primary': order.status === 'completed', 'is-danger': order.status === 'cancelled'}">{{order.status}}</span>
 		    </p>
 		  </header>
 		  <div class="card-content">
