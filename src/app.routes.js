@@ -1,7 +1,7 @@
 // app.routes.js
 angular.module('app')
 
-    .config(($stateProvider, $urlRouterProvider, NotificationProvider) => {
+    .config(['$stateProvider','$urlRouterProvider', 'NotificationProvider', ($stateProvider, $urlRouterProvider, NotificationProvider) => {
         const states = [{
             name: 'home',
             url: '',
@@ -33,4 +33,4 @@ angular.module('app')
             positionX: 'right',
             positionY: 'top'
         });
-    })
+    }])

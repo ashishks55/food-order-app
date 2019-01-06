@@ -1,7 +1,7 @@
 // food.service.js
 angular
     .module('app')
-    .service('foodService', FoodService);
+    .service('foodService', ['$http', FoodService]);
 
 function FoodService($http) {
 

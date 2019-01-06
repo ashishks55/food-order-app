@@ -1,7 +1,7 @@
 // home.controller.js
 angular
     .module('app')
-    .controller('HomeController', HomeController);
+    .controller('HomeController', ['foodService', 'cartService', 'Notification', HomeController]);
 
 function HomeController(foodService, cartService, Notification) {
     const vm = this;

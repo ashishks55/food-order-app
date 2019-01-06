@@ -1,7 +1,7 @@
 // cart.controller.js
 angular
     .module('app')
-    .controller('HistoryController', HistoryController);
+    .controller('HistoryController',['orderService' ,HistoryController]);
 
 function HistoryController(orderService) {
     const vm = this;

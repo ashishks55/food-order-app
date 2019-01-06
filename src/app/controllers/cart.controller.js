@@ -1,7 +1,7 @@
 // cart.controller.js
 angular
     .module('app')
-    .controller('CartController', CartController);
+    .controller('CartController',['cartService', 'Notification', 'orderService', CartController]);
 
 function CartController(cartService, Notification, orderService) {
     const vm = this;
