@@ -1,0 +1,33 @@
+<div>
+	<!-- Cart Button -->
+	<div class="fixed-cart">
+	  <button class="button is-info" ng-click="vm.openCart()">
+	    <span class="icon is-small">
+	      <i class="fas fa-shopping-cart"></i>
+	    </span>
+	    <span>Cart (0)</span>
+	  </button>
+	</div>
+
+	<!-- Cart Modal -->
+	<div class="modal" ng-class="{'is-active': vm.cartOpen}">
+	  <div class="modal-background"></div>
+	  <div class="modal-card">
+	    <header class="modal-card-head">
+	      <p class="modal-card-title">Cart</p>
+	      <button class="delete" aria-label="close" ng-click="vm.closeCart()"></button>
+	    </header>
+	    <section class="modal-card-body">
+	      <!-- Content ... -->
+	      <p ng-if="!vm.cartItems.length">No items in cart</p>
+	      <div ng-if="vm.cartItems.length">
+	      	
+	      </div>
+	    </section>
+	    <footer class="modal-card-foot">
+	      <button class="button is-success" ng-click="vm.placeOrder()">Place Order</button>
+	      <button class="button" ng-click="vm.closeCart()">Cancel</button>
+	    </footer>
+	  </div>
+	</div>
+</div>

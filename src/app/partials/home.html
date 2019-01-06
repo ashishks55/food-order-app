@@ -1,0 +1,43 @@
+<div>
+    <section class="hero is-medium food-bg is-bold">
+	  <div class="hero-body">
+	  	<div class="is-visible-mobile mar-top-30"></div>
+	    <div class="container has-text-centered">
+	      <img src="./images/logo.png" width="200px">
+	      <h2 class="subtitle">
+	        <b>The fastest food delivery App</b>
+	      </h2>
+	        <div class="columns">
+			  <div class="column is-4 mar-auto">
+			   <input class="input is-rounded border-brown" type="text" placeholder="Search">
+			  </div>
+			</div>
+	    </div>
+	  </div>
+	</section>
+	<br>
+    <div class="tile is-ancestor column is-8-fullhd is-12-widescreen mar-auto flex-wrap">
+          <div class="tile is-parent is-3" ng-if="!vm.foodItems.length" ng-repeat="i in [1, 2, 3, 4]">
+            <div class="tile is-child box pad-bot-10 box-hov box-shadow-3">
+              <figure class="animated-background image is-4by3 cur-point">
+                <img src="https://res.cloudinary.com/dpessyoae/image/upload/v1532073571/book-that-studio/placeholder-min_z2gkbe.png" width="640px" height="480px">
+              </figure>
+              <p class="animated-background title is-5 mar-10 has-text-centered">&nbsp;</p>
+              <p class="animated-background subtitle has-text-centered mar-10 is-7">&nbsp;</p>
+            </div>
+          </div>
+
+          <div class="tile is-parent is-3" ng-if="vm.foodItems.length" ng-repeat="item in vm.foodItems">
+            <div class="tile is-child box pad-bot-10 box-hov box-shadow-3">
+              <figure class="image is-4by3 cur-point">
+                <img ng-src="{{item.image}}" width="640px" height="480px">
+              </figure>
+              <p class="title is-5 mar-10 has-text-centered">{{item.name}}</p>
+              <p>
+              	<span class="tag is-medium" ng-class="{'is-success': item.veg, 'is-danger': !item.veg}">Rs {{item.price}}</span>
+              	<span class="has-text-success is-pulled-right mar-10"><i class="fas fa-star has-text-warning"></i> {{item.rating}}</span>
+              </p>
+            </div>
+          </div>
+      </div>
+</div>

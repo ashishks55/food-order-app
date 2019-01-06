@@ -1,0 +1,21 @@
+{
+  "name": "food_order_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "",
+  "author": "Ashish Kanwar Singh",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-ui-notification": "^0.3.6",
+    "angular-ui-router": "^1.0.18"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "run-sequence": "^2.2.1"
+  }
+}

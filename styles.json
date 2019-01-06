@@ -1,0 +1,5 @@
+[
+    "./src/**/*.css",
+    "./node_modules/angular-ui-notification/dist/angular-ui-notification.css",
+    ""
+]

@@ -1,0 +1,30 @@
+<div>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+	  <div class="navbar-brand">
+	  	<a class="navbar-item has-text-white" ui-sref="home">
+	      <b>Quorn</b>
+	    </a>
+
+	    <a ng-class="{'is-active': vm.isActive}" ng-click="vm.toggleMenu()" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+	      <span aria-hidden="true"></span>
+	      <span aria-hidden="true"></span>
+	      <span aria-hidden="true"></span>
+	    </a>
+	  </div>
+
+	  <div id="navbarBasicExample" ng-class="{'is-active': vm.isActive, 'absolute-navMenu': vm.isActive}" class="navbar-menu">
+
+	    <div class="navbar-end">
+    	<a class="navbar-item has-text-white" ui-sref="home">
+       	 <b>Home</b> 
+        </a>
+        <a class="navbar-item has-text-white" ui-sref="history">
+       	 <b>Order History</b>
+        </a>
+        <a class="navbar-item has-text-white" ui-sref="home">
+       	 <b>Log out</b>
+        </a>
+	    </div>
+	  </div>
+	</nav>
+</div>
