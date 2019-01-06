@@ -19,7 +19,7 @@
 		"id": 3,
 		"name": "Penne Pasta",
 		"price": 150,
-		"image": "./images/pasta.png",
+		"image": "./images/pasta.jpg",
 		"rating": 4,
 		"veg": true
 	},
@@ -35,7 +35,7 @@
 		"id": 5,
 		"name": "Chocolate Moose",
 		"price": 170,
-		"image": "./images/choco.png",
+		"image": "./images/choco.jpg",
 		"rating": 3.4,
 		"veg": true
 	},
@@ -52,6 +52,14 @@
 		"name": "Chicken Wrap",
 		"price": 160,
 		"image": "./images/wrap.jpeg",
+		"rating": 4.1,
+		"veg": false
+	},
+	{
+		"id": 8,
+		"name": "Burger Combo",
+		"price": 160,
+		"image": "./images/burger.jpg",
 		"rating": 4.1,
 		"veg": false
 	}

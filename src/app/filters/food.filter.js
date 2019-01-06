@@ -5,11 +5,16 @@ angular
    return function( items, condition) {
     let filtered = [];
 
-    if(condition === undefined || condition === '' || condition === 0){
+    if(condition === undefined || condition === ''){
       return items;
     }
-    
-    if(condition === 1){
+
+    if(condition === 0){
+      filtered = items.sort((a,b)=>{
+        return a.id - b.id
+      })
+    }
+    else if(condition === 1){
       items.forEach((item)=>{
         if(item.veg === true)
           filtered.push(item)
