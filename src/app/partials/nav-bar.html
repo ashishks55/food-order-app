@@ -15,13 +15,13 @@
 	  <div id="navbarBasicExample" ng-class="{'is-active': vm.isActive, 'absolute-navMenu': vm.isActive}" class="navbar-menu">
 
 	    <div class="navbar-end">
-    	<a class="navbar-item has-text-white" ui-sref="home">
+    	<a class="navbar-item has-text-white" ui-sref="home" ng-click="vm.closeMenu()">
        	 <b>Home</b> 
         </a>
-        <a class="navbar-item has-text-white" ui-sref="history">
+        <a class="navbar-item has-text-white" ui-sref="history" ng-click="vm.closeMenu()">
        	 <b>Order History</b>
         </a>
-        <a class="navbar-item has-text-white" ui-sref="home">
+        <a class="navbar-item has-text-white" ui-sref="home" ng-click="vm.closeMenu()">
        	 <b>Log out</b>
         </a>
 	    </div>

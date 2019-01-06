@@ -8,12 +8,16 @@ function CartController(cartService, Notification) {
     vm.$onInit = onInit;
     vm.cartOpen = false;
     vm.cartItems = [];
+    vm.totalItems = 0;
+    vm.itemQuantity = {};
 
     activate();
 
     function activate() {
         // Resolve start-up logic
+        vm.totalItems = cartService.getcartTotalItems()
         vm.cartItems = cartService.getCart();
+        vm.itemQuantity = cartService.getQty();
     }
 
     function onInit() {
@@ -33,6 +37,13 @@ function CartController(cartService, Notification) {
     vm.placeOrder = function(){
         vm.closeCart();
         cartService.placeOrder();
+        vm.clearCart();
         Notification.success('Order will be delivered in 30 mins! click Order History for more details.');
+    }
+
+    vm.clearCart = function(){
+        cartService.clearCart();
+        activate();
+        vm.closeCart();
     }
 }

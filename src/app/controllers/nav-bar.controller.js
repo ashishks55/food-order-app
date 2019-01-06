@@ -28,5 +28,9 @@ function NavBarController() {
         this.isActive =false;
       }
     }
+
+    vm.closeMenu = function(){
+      this.isActive =false;
+    }
 }
 

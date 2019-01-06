@@ -5,6 +5,13 @@ angular
 
 function OrderService() {
 
+    this.orderHistory = [{
+        orderID : 1,
+        orderItems: [],
+        totalCost: 500,
+        status: 'completed'
+    }]
+
     function getOrderHistory() {
         
     }

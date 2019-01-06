@@ -28,7 +28,11 @@
           </div>
 
           <div class="tile is-parent is-3" ng-if="vm.foodItems.length" ng-repeat="item in vm.foodItems">
-            <div class="tile is-child box pad-bot-10 box-hov box-shadow-3">
+            <div class="tile is-child box pad-bot-10 box-hov box-shadow-3" ng-click="vm.addToCart(item)">
+              	<div class="add-cart has-text-white center-v is-hidden-touch">
+		          <p><i class="fas fa-plus-circle is-size-1 mar-10"></i></p>
+		          <p class="is-size-5 mar-10">Add to cart</p>
+		        </div>
               <figure class="image is-4by3 cur-point">
                 <img ng-src="{{item.image}}" width="640px" height="480px">
               </figure>

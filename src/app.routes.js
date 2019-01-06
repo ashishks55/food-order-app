@@ -1,7 +1,7 @@
 // app.routes.js
 angular.module('app')
 
-    .config(($stateProvider, $urlRouterProvider, $locationProvider, NotificationProvider) => {
+    .config(($stateProvider, $urlRouterProvider, NotificationProvider) => {
         const states = [{
             name: 'home',
             url: '',
@@ -20,10 +20,6 @@ angular.module('app')
         }];
         states.forEach(state => {
             $stateProvider.state(state);
-        });
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: true
         });
         $urlRouterProvider.when('/', ['$state', '$match', ($state, $match) => {
             $state.go('home');

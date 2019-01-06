@@ -98,6 +98,7 @@ a.navbar-item:hover{
 .box{
   transition: all .2s ease-in-out;
   cursor: pointer;
+  position: relative;
 }
 .box-hov:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -129,4 +130,26 @@ a.navbar-item:hover{
 /*Noti*/
 .message{
 	background-color: transparent;
+}
+
+/*Add to Cart*/
+.add-cart{
+    position: absolute;
+    transition: all .2s ease-in;
+    /*transition-delay: 0.1s;*/
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    z-index: 10;
+}
+.add-cart:hover{
+     opacity: 1;
+}
+.center-v{
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  flex-direction: column;
 }

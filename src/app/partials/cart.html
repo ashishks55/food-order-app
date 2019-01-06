@@ -5,7 +5,7 @@
 	    <span class="icon is-small">
 	      <i class="fas fa-shopping-cart"></i>
 	    </span>
-	    <span>Cart (0)</span>
+	    <span>Cart ({{vm.totalItems.count}})</span>
 	  </button>
 	</div>
 
@@ -20,13 +20,13 @@
 	    <section class="modal-card-body">
 	      <!-- Content ... -->
 	      <p ng-if="!vm.cartItems.length">No items in cart</p>
-	      <div ng-if="vm.cartItems.length">
-	      	
+	      <div ng-if="vm.cartItems.length" ng-repeat="item in vm.cartItems">
+	      	{{vm.itemQuantity[item.id]}} x {{item.name}}
 	      </div>
 	    </section>
 	    <footer class="modal-card-foot">
 	      <button class="button is-success" ng-click="vm.placeOrder()">Place Order</button>
-	      <button class="button" ng-click="vm.closeCart()">Cancel</button>
+	      <button class="button" ng-click="vm.clearCart()">Clear Cart</button>
 	    </footer>
 	  </div>
 	</div>

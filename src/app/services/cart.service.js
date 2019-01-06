@@ -5,10 +5,13 @@ angular
 
 function CartService() {
 
-    this.cart = []
+    const s = this;
+    s.cart = [];
+    s.qty = {};
+    s.totalItems = {count:0};
     
     function getCart() {
-        return this.cart
+        return s.cart
     }
 
     function putCart(){
@@ -16,11 +19,28 @@ function CartService() {
     }
 
     function clearCart(){
-
+        s.cart = [];
+        s.qty = {};
+        s.totalItems = {count:0};
     }
 
     function addToCart(item){
-        this.cart.push(item)
+        if(!s.qty[item.id]){
+            s.qty[item.id] = 1;
+            s.cart.push(item);
+        }
+        else
+            s.qty[item.id] += 1
+        getcartTotalItems()
+    }
+
+    function getcartTotalItems(){
+        let totalItems = 0
+        s.cart.forEach((item) => {
+            totalItems += s.qty[item.id]
+        })
+        s.totalItems.count = totalItems
+        return s.totalItems
     }
 
     function removeFromCart(id){
@@ -35,6 +55,10 @@ function CartService() {
         console.log('placed')
     }
 
+    function getQty(){
+        return s.qty
+    }
+
     return {
         getCart: getCart,
         putCart: putCart,
@@ -42,7 +66,9 @@ function CartService() {
         removeFromCart: removeFromCart,
         clearCart: clearCart,
         calculateCartTotal: calculateCartTotal,
-        placeOrder: placeOrder
+        placeOrder: placeOrder,
+        getcartTotalItems: getcartTotalItems,
+        getQty: getQty
     };
 
 }
