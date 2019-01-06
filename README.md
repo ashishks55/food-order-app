@@ -8,11 +8,11 @@ yarn
 gulp
 ```
 
-## create build in dist folder
+### Create build in dist folder
 ```
 gulp build
 ```
 
-## Demo URL
+### Demo URL
 
 <https://brave-hodgkin-b336b7.netlify.com/>
