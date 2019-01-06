@@ -1,7 +1,7 @@
 // order.service.js
 angular
     .module('app')
-    .factory('orderService', OrderService);
+    .service('orderService', OrderService);
 
 function OrderService() {
 

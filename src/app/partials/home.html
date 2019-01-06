@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div class="tile is-parent is-3" ng-if="vm.foodItems.length" ng-repeat="item in vm.foodItems">
+          <div class="tile is-parent is-3" ng-if="vm.foodItems.length" ng-repeat="item in vm.foodItems | foodfilter:vm.filterSelected">
             <div class="tile is-child box pad-bot-10 box-hov box-shadow-3" ng-click="vm.addToCart(item)">
               	<div class="add-cart has-text-white center-v is-hidden-touch">
 		          <p><i class="fas fa-plus-circle is-size-1 mar-10"></i></p>

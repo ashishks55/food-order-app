@@ -1,7 +1,7 @@
 // cart.service.js
 angular
     .module('app')
-    .factory('cartService', CartService);
+    .service('cartService', CartService);
 
 function CartService() {
 

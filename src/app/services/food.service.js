@@ -1,7 +1,7 @@
 // food.service.js
 angular
     .module('app')
-    .factory('foodService', FoodService);
+    .service('foodService', FoodService);
 
 function FoodService($http) {
 
