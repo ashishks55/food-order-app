@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const concat = require('gulp-concat');
 const del = require('del');
 const runSequence = require('run-sequence');
+const minify = require('gulp-minify');
 
 const scripts = require('./scripts');
 const styles = require('./styles');
@@ -28,6 +29,7 @@ gulp.task('css', () =>
 gulp.task('js', () =>
     gulp.src(scripts)
     .pipe(concat('script.js'))
+    .pipe(minify())
     .pipe(gulp.dest(buildDir))
     .pipe(browserSyncReload())
 );

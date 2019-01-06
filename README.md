@@ -1,6 +1,6 @@
 ### Install Dependencies
 ```shell
-yarn install
+yarn
 ```
 
 ### run dev server
