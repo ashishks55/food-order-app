@@ -1,7 +1,7 @@
 <div>
-	<div class="column is-8-fullhd is-12-widescreen mar-auto">
+	<div class="column is-8-fullhd is-10-widescreen mar-auto">
 		<br><br><br>
-		<div class="card mar-order-history" ng-repeat="order in vm.orderHistory">
+		<div class="card mar-order-history" ng-repeat="order in vm.orderHistory track by $index">
 		  <header class="card-header">
 		    <p class="card-header-title">
 		      Order Number: {{order.orderID}}
