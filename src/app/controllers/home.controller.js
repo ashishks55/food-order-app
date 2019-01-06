@@ -7,7 +7,8 @@ function HomeController(foodService, cartService, Notification) {
     const vm = this;
     vm.header = 'Quron';
     vm.$onInit = onInit;
-    vm.foodItems = []
+    vm.foodItems = [];
+    vm.filterSelected = 0;
 
     activate();
 
@@ -23,6 +24,10 @@ function HomeController(foodService, cartService, Notification) {
         // Initialization logic that relies on bindings being present
         // should be put in this method, which is guarranteed to
         // always be called after the bindings have been assigned.
+    }
+
+    vm.changeFilter = function(index){
+        vm.filterSelected = index;
     }
 
     vm.addToCart = function(item){

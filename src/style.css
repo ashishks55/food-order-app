@@ -156,3 +156,13 @@ a.navbar-item:hover{
   align-items: center; /* align vertical */
   flex-direction: column;
 }
+
+/*Tabs*/
+.tabs ul{
+  border-bottom-color: #ffffff;
+}
+
+.tabs li.is-active a {
+    border-bottom-color: #ef7b0b;
+    color: #ef7b0b;
+}

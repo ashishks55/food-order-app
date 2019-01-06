@@ -38,7 +38,7 @@ function OrderService() {
         items.forEach((item) => {
             orderItems.push({id: item.id, name: item.name, qty: qty[item.id], price: item.price});
         })
-        s.orderHistory.push({orderID: s.orderHistory[s.orderHistory.length - 1].orderID + 1, orderItems: orderItems, totalCost: cost, status:'completed'});
+        s.orderHistory.unshift({orderID: s.orderHistory[0].orderID + 1, orderItems: orderItems, totalCost: cost, status:'completed'});
         saveOrderHistory();
     }
 

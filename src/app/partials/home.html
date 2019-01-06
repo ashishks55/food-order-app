@@ -16,6 +16,37 @@
 	  </div>
 	</section>
 	<br>
+	
+	<!-- Filters -->
+	<div class="tabs is-centered mar-10">
+	  <ul>
+	  	<li ng-class="{'is-active': vm.filterSelected === 0}" ng-click="vm.changeFilter(0)">
+	      <a>
+	        <span class="icon is-small"><i class="fas fa-align-justify"></i></span>
+	        <span>All</span>
+	      </a>
+	    </li>
+	    <li ng-class="{'is-active': vm.filterSelected === 1}" ng-click="vm.changeFilter(1)">
+	      <a>
+	        <span class="icon is-small"><i class="fas fa-carrot"></i></span>
+	        <span>Veg</span>
+	      </a>
+	    </li>
+	    <li ng-class="{'is-active': vm.filterSelected === 2}" ng-click="vm.changeFilter(2)">
+	      <a>
+	        <span class="icon is-small"><i class="fas fa-utensils"></i></span>
+	        <span>Non-veg</span>
+	      </a>
+	    </li>
+	    <li ng-class="{'is-active': vm.filterSelected === 3}" ng-click="vm.changeFilter(3)">
+	      <a>
+	        <span class="icon is-small"><i class="fas fa-star"></i></span>
+	        <span>Top Rated</span>
+	      </a>
+	    </li>
+	  </ul>
+	</div>
+
     <div class="tile is-ancestor column is-8-fullhd is-12-widescreen mar-auto flex-wrap">
           <div class="tile is-parent is-3" ng-if="!vm.foodItems.length" ng-repeat="i in [1, 2, 3, 4]">
             <div class="tile is-child box pad-bot-10 box-hov box-shadow-3">
