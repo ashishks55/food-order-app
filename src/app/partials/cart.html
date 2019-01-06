@@ -20,9 +20,24 @@
 	    <section class="modal-card-body">
 	      <!-- Content ... -->
 	      <p ng-if="!vm.cartItems.length">No items in cart</p>
-	      <div ng-if="vm.cartItems.length" ng-repeat="item in vm.cartItems">
-	      	{{vm.itemQuantity[item.id]}} x {{item.name}}
-	      </div>
+	      <ul ng-if="vm.cartItems.length" ng-repeat="item in vm.cartItems track by $index">
+	      	<li class="mar-10">
+	      		 <button class="button is-small is-primary is-outlined" ng-click="vm.increaseQty(item.id)">
+				    <span class="icon is-small">
+				      <i class="fas fa-plus"></i>
+				    </span>
+				  </button>
+				  <span class="mar-10">{{vm.itemQuantity[item.id]}}</span>
+				  <button class="button is-small is-danger is-outlined" ng-click="vm.decreaseQty($index, item.id)">
+				    <span class="icon is-small">
+				      <i class="fas fa-minus"></i>
+				    </span>
+				  </button>
+	      		&nbsp; {{item.name}} - Rs {{item.price}}
+	      	</li>
+	      </ul><br>
+	      <p><b>Address:</b> DLF Phase 5, Sector 53, Gurugram, Haryana 122003</p>
+	      <p class="has-text-right"><b>Total Cost:</b> {{vm.totalCost}}</p>
 	    </section>
 	    <footer class="modal-card-foot">
 	      <button class="button is-success" ng-click="vm.placeOrder()">Place Order</button>

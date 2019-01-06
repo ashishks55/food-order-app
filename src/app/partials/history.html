@@ -1,25 +1,23 @@
 <div>
 	<div class="column is-8-fullhd is-12-widescreen mar-auto">
 		<br><br><br>
-		<div class="card">
+		<div class="card mar-order-history" ng-repeat="order in vm.orderHistory">
 		  <header class="card-header">
 		    <p class="card-header-title">
-		      Order Number: 
+		      Order Number: {{order.orderID}}
+		      <span class="tag mar-10" ng-class="{'is-primary': order.status === 'completed', 'is-danger': order.status === 'cancelled'}">{{order.status}}</span>
 		    </p>
 		  </header>
 		  <div class="card-content">
 		    <div class="content">
-		      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-		      <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-		      <br>
-		      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+		     <ul ng-repeat="item in order.orderItems">
+		      	<li class="mar-10">
+		      		{{item.name}} @ Rs {{item.price}} x {{item.qty}}  
+		      	</li>
+		      </ul> 
+		      <p class="has-text-right"><span><b>Total: </b> Rs. {{order.totalCost}}</span></p>
 		    </div>
 		  </div>
-		  <!-- <footer class="card-footer">
-		    <a href="#" class="card-footer-item">Support</a>
-		    <a href="#" class="card-footer-item">Edit</a>
-		    <a href="#" class="card-footer-item">Delete</a>
-		  </footer> -->
 		</div>
 	</div>
 </div>

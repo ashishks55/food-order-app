@@ -3,13 +3,14 @@ angular
     .module('app')
     .controller('CartController', CartController);
 
-function CartController(cartService, Notification) {
+function CartController(cartService, Notification, orderService) {
     const vm = this;
     vm.$onInit = onInit;
     vm.cartOpen = false;
     vm.cartItems = [];
-    vm.totalItems = 0;
     vm.itemQuantity = {};
+    vm.totalItems = 0;
+    vm.totalCost = 0;
 
     activate();
 
@@ -26,17 +27,27 @@ function CartController(cartService, Notification) {
         // always be called after the bindings have been assigned.
     }
 
+    function calculateTotal(){
+        vm.totalCost = cartService.calculateCartTotal();
+    }
+
     vm.openCart = function(){
+        calculateTotal()
         vm.cartOpen = true;
     }
+
 
     vm.closeCart = function(){
         vm.cartOpen = false;
     }
 
     vm.placeOrder = function(){
+        if(vm.cartItems.length === 0){
+          Notification.error('Cart is empty!');
+          return
+        }
         vm.closeCart();
-        cartService.placeOrder();
+        orderService.placeOrder(vm.cartItems, vm.itemQuantity, vm.totalCost);
         vm.clearCart();
         Notification.success('Order will be delivered in 30 mins! click Order History for more details.');
     }
@@ -45,5 +56,15 @@ function CartController(cartService, Notification) {
         cartService.clearCart();
         activate();
         vm.closeCart();
+    }
+
+    vm.increaseQty = function(id){
+        cartService.increaseQty(id);
+        calculateTotal();
+    }
+
+    vm.decreaseQty = function(index, id){
+        cartService.decreaseQty(index, id);
+        calculateTotal();
     }
 }

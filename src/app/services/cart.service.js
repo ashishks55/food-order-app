@@ -30,29 +30,41 @@ function CartService() {
             s.cart.push(item);
         }
         else
-            s.qty[item.id] += 1
-        getcartTotalItems()
+            s.qty[item.id] += 1;
+        getcartTotalItems();
     }
 
     function getcartTotalItems(){
-        let totalItems = 0
+        let totalItems = 0;
         s.cart.forEach((item) => {
             totalItems += s.qty[item.id]
         })
-        s.totalItems.count = totalItems
-        return s.totalItems
+        s.totalItems.count = totalItems;
+        return s.totalItems;
     }
 
-    function removeFromCart(id){
+    function decreaseQty(index, id){
+        if(s.qty[id] === 1){
+            s.cart.splice(index,1);
+            s.qty[id] = 0;
+        }
+        else{
+            s.qty[id] -= 1;
+        }
+        getcartTotalItems()
+    }
 
+    function increaseQty(id){
+        s.qty[id] += 1;  
+        getcartTotalItems()
     }
 
     function calculateCartTotal(){
-
-    }
-
-    function placeOrder(){
-        console.log('placed')
+        let totalCost = 0;
+        s.cart.forEach((item) => {
+            totalCost += s.qty[item.id] * item.price;
+        })
+        return totalCost;
     }
 
     function getQty(){
@@ -63,10 +75,10 @@ function CartService() {
         getCart: getCart,
         putCart: putCart,
         addToCart: addToCart,
-        removeFromCart: removeFromCart,
+        decreaseQty: decreaseQty,
+        increaseQty: increaseQty,
         clearCart: clearCart,
         calculateCartTotal: calculateCartTotal,
-        placeOrder: placeOrder,
         getcartTotalItems: getcartTotalItems,
         getQty: getQty
     };
