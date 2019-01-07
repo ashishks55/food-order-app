@@ -16,9 +16,10 @@ function CartController(cartService, Notification, orderService) {
 
     function activate() {
         // Resolve start-up logic
-        vm.totalItems = cartService.getcartTotalItems()
+        vm.totalItems = cartService.getcartTotalItems();
         vm.cartItems = cartService.getCart();
         vm.itemQuantity = cartService.getQty();
+        orderService.init();
     }
 
     function onInit() {

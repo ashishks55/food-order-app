@@ -5,82 +5,69 @@ angular
 
 function CartService() {
 
-    const s = this;
-    s.cart = [];
-    s.qty = {};
-    s.totalItems = {count:0};
+    this.cart = [];
+    this.qty = {};
+    this.totalItems = {count:0};
     
-    function getCart() {
-        return s.cart
+    this.getCart= function() {
+        return this.cart
     }
 
-    function putCart(){
+    this.putCart = function(){
         localStorage.cart = JSON.stringify(this.cart)
     }
 
-    function clearCart(){
-        s.cart = [];
-        s.qty = {};
-        s.totalItems = {count:0};
+    this.clearCart= function(){
+        this.cart = [];
+        this.qty = {};
+        this.totalItems = {count:0};
     }
 
-    function addToCart(item){
-        if(!s.qty[item.id]){
-            s.qty[item.id] = 1;
-            s.cart.push(item);
+    this.addToCart = function(item){
+        if(!this.qty[item.id]){
+            this.qty[item.id] = 1;
+            this.cart.push(item);
         }
         else
-            s.qty[item.id] += 1;
-        getcartTotalItems();
+            this.qty[item.id] += 1;
+        this.getcartTotalItems();
     }
 
-    function getcartTotalItems(){
+    this.getcartTotalItems = function(){
         let totalItems = 0;
-        s.cart.forEach((item) => {
-            totalItems += s.qty[item.id]
+        this.cart.forEach((item) => {
+            totalItems += this.qty[item.id]
         })
-        s.totalItems.count = totalItems;
-        return s.totalItems;
+        this.totalItems.count = totalItems;
+        return this.totalItems;
     }
 
-    function decreaseQty(index, id){
-        if(s.qty[id] === 1){
-            s.cart.splice(index,1);
-            s.qty[id] = 0;
+    this.decreaseQty = function(index, id){
+        if(this.qty[id] === 1){
+            this.cart.splice(index,1);
+            this.qty[id] = 0;
         }
         else{
-            s.qty[id] -= 1;
+            this.qty[id] -= 1;
         }
-        getcartTotalItems()
+        this.getcartTotalItems()
     }
 
-    function increaseQty(id){
-        s.qty[id] += 1;  
-        getcartTotalItems()
+    this.increaseQty = function(id){
+        this.qty[id] += 1;  
+        this.getcartTotalItems()
     }
 
-    function calculateCartTotal(){
+    this.calculateCartTotal = function(){
         let totalCost = 0;
-        s.cart.forEach((item) => {
-            totalCost += s.qty[item.id] * item.price;
+        this.cart.forEach((item) => {
+            totalCost += this.qty[item.id] * item.price;
         })
         return totalCost;
     }
 
-    function getQty(){
-        return s.qty
+    this.getQty = function(){
+        return this.qty
     }
-
-    return {
-        getCart: getCart,
-        putCart: putCart,
-        addToCart: addToCart,
-        decreaseQty: decreaseQty,
-        increaseQty: increaseQty,
-        clearCart: clearCart,
-        calculateCartTotal: calculateCartTotal,
-        getcartTotalItems: getcartTotalItems,
-        getQty: getQty
-    };
 
 }

@@ -1,18 +1,14 @@
 // food.service.js
 angular
     .module('app')
-    .service('foodService', ['$http', FoodService]);
+    .service('foodService', ['$http', FoodListService]);
 
-function FoodService($http) {
+function FoodListService($http) {
 
-    function getFoodList() {
+    this.getFoodList = function() {
          return $http
             .get(`./food.json`)
             .then(response => response.data);
     }
-
-    return {
-        getFoodList: getFoodList
-    };
 
 }
