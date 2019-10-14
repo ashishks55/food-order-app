@@ -1,3 +1,8 @@
+
+### Demo URL
+
+<https://brave-hodgkin-b336b7.netlify.com/>
+
 ### Install Dependencies
 ```shell
 yarn
@@ -12,7 +17,3 @@ gulp
 ```
 gulp build
 ```
-
-### Demo URL
-
-<https://brave-hodgkin-b336b7.netlify.com/>
