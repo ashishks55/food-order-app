@@ -7,7 +7,7 @@
   "author": "Ashish Kanwar Singh",
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.7.2",
+    "angular": "^1.8.0",
     "angular-ui-notification": "^0.3.6",
     "angular-ui-router": "^1.0.18"
   },
